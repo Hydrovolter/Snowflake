@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta name="google-site-verification" content="buthsBZ2q6Ex7q3QolrK3ufyvA0nrdt7ntp6w1ZVJzM" />
+  <title>Discord Snowflake Deconstructor</title>
+  <meta name="theme-color" content="#88C9F9" />
+  <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+  <meta name="description" content="A Discord snowflake deconstructor website" />
+  <meta content="Discord Snowflake Deconstructor" property="og:site_name" />
+  <meta content="/assets/Snowflake.png" property="og:image" />
+  <meta content="A Discord Snowflake Deconstructor Website" property="og:description" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/Snowflake.png" />
+  <link rel="manifest" href="/assets/manifest.json" />
+  <script>
+    window.onload = () => {
+    input.oninput = () => {
+      const { value } = input;
+      if (!value) {
+        history.replaceState(null, "", "/snowflake");
+        result.innerText = "";
+        return;
+      }
+  
+      if (!+value || value < 4194304 || value > 9223372036854775807) {
+        history.replaceState(null, "", "/snowflake");
+        result.style.color = "#ED4245";
+        result.innerText = "Invalid Snowflake";
+        return;
+      }
+  
+      result.style.color = "#57F287";
+      result.innerText = new Date(
+        value / 4194304 + 1420070400000
+      ).toLocaleString();
+  
+      history.replaceState(null, "", "/snowflake/" + value);
+    };
+  
+    input.onpaste = () => input.focus();
+  
+    const q = location.pathname.slice(11);
+    if (q) {
+      input.value = q;
+      input.focus();
+      input.oninput();
+    }
+  };
+  </script>
+  <style>
+    .form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 25%;
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid rgb(180, 180, 180);
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .form__field::placeholder {
+    color: transparent;
+  }
+  
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: rgb(180, 180, 180);
+    pointer-events: none;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-color: #5865f2;
+    border-image-slice: 1;
+  }
+  
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #5865f2;
+    font-weight: 700;
+  }
+  
+  .form__field:required,
+  .form__field:invalid {
+    box-shadow: none;
+  }
+  
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input {
+    -moz-appearance: textfield;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #232323;
+    margin: 0;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+  
+  </style>
+</head>
+
+<body>
+  <div class="form__group field">
+    <input id="input" type="number" class="form__field" placeholder="Snowflake" name="snowflake" id="snowflake"
+      required />
+    <label for="name" class="form__label">Snowflake</label>
+    <p id="result"></p>
+  </div>
+
+
+
+</div>
+<div>
+  <a style="    display: flex;  flex-direction: column;  gap: 25px;  max-width: 1000px; /*  800px */  max-height: 80vh;  margin: 5vmin;  padding: 5vmin;  box-shadow: 5px 5px 15px 5px rgba(0,0,0,.25);
+  border-radius: 25px" href="/guide/">How to use this</a>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
