@@ -1,4 +1,4 @@
-_NB: This repository has been archived. The snowflake deconstructor can be found at [my tools site](https://tools.hydrovolter.com/snowflake)_
+_NB: This repository has been **archived**. The new snowflake deconstructor can now be found at [my tools site](https://tools.hydrovolter.com/snowflake)_
 # Discord Snowflake Deconstructor
 
 <a href="https://hydrovolter.com/snowflake" target="_blank">Snowflake Deconstructor</a> | Deconstructs Discord's Message Snowflakes (from Message IDs)
